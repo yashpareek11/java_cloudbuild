@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: java-app
-          image: javaapp-image:latest
+          image: yashpareek99/javaapp-image
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8081
