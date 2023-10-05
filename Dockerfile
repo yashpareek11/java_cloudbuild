@@ -6,5 +6,7 @@ ADD /target/javaapp.jar /app/javaapp.jar
 
 ENTRYPOINT [ "java", "-jar", "/app/javaapp.jar" ]
 
+RUN echo "hello"
+
 
 
