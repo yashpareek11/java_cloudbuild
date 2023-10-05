@@ -17,14 +17,14 @@ pipeline {
         }
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t yashpareek99/javaapp-image .'
+                sh 'docker build -t yashpareek99/javaapp-image:${BUILD_ID} .'
             }
         }
         stage('Docker image push to dockerHub') {
             steps {
                 withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
                     sh 'docker login -u yashpareek99 -p ${dockerhubpwd}'
-                    sh 'docker push yashpareek99/javaapp-image'
+                    sh 'docker push yashpareek99/javaapp-image:${BUILD_ID}'
                 }
             }
         }
