@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    triggers {
+       githubPush()
+    }
     tools { maven 'mvn' }
     stages {
         stage('git checkout') {
