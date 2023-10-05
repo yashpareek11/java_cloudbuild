@@ -23,9 +23,9 @@ pipeline {
         stage('Docker image push to dockerHub') {
             steps {
                 withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                    sh 'docker login -u yashpareek99 -p ${dockerhubpwd}'
-                    sh 'docker push yashpareek99/javaapp-image'
+                    sh 'docker login -u yashpareek99 -p ${dockerhubpwd}'                    
                 }
+                sh 'docker push yashpareek99/javaapp-image'
             }
         }
         stage('Deployment on K8s') {
