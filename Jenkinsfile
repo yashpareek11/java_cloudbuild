@@ -27,7 +27,8 @@ pipeline {
         }
         stage('Deployment on K8s') {
             steps {
-                kubernetesDeploy (configs: 'deployment.yaml,service.yaml', kubeconfigId: 'k8spwd')                
+                kubernetesDeploy (configs: 'deployment.yaml,service.yaml', kubeconfigId: 'k8spwd')
+                sh 'echo ${BUILD_ID}'
             }
         }
         
