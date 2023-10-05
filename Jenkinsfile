@@ -24,7 +24,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
                     sh 'docker login -u yashpareek99 -p ${dockerhubpwd}'
-                    sh 'docker push yashpareek99/javaapp-image:${BUILD_ID}'
+                    sh 'docker push yashpareek99/javaapp-image'
                 }
             }
         }
